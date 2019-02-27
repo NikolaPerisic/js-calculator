@@ -1,0 +1,48 @@
+// .App {
+//   text-align: center;
+// }
+
+// .App-header {
+//   background-color: #282c34;
+//   min-height: 100vh;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   font-size: calc(10px + 2vmin);
+//   color: white;
+// }
+.Wrapper {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Calc {
+    background-color: gray;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-areas:
+        "a a a a"
+        "a a a a"
+        "a a a a"
+        "b b b b"
+        "b b b b"
+        "b b b b"
+        "b b b b"
+        "b b b b";
+    width: 400px;
+    height: 800px;
+    grid-gap: 1rem;
+    padding: 1rem;
+}
+.Display {
+    grid-area: a;
+    background-color: #9283ff77;
+    text-align: center;
+}
+.Inputs {
+    background-color: aquamarine;
+    // grid-area: b;
+}
