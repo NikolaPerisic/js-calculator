@@ -41,8 +41,12 @@
     grid-area: a;
     background-color: #9283ff77;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
 .Inputs {
     background-color: aquamarine;
-    // grid-area: b;
 }

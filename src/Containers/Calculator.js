@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../App.scss";
 import Controls from "../Components/Controls";
+import Display from "../Components/Display";
 
 class Calculator extends Component {
     state = {
@@ -25,13 +26,15 @@ class Calculator extends Component {
         three: 3,
         decimal: ".",
         zero: 0,
-        delete: "CR",
+        delete: "DEL",
         equals: "="
+    };
+    inputHandler = el => {
+        console.log(el.currentTarget.textContent);
     };
     render() {
         const controls = Object.entries(this.state).map(([key, val]) => {
             if (key !== "calc") {
-                console.log(val);
                 return (
                     <Controls
                         inputs={val}
@@ -44,7 +47,10 @@ class Calculator extends Component {
         });
         return (
             <div className="Calc">
-                <div className="Display">display</div>
+                <Display
+                    exp={this.state.calc.expression}
+                    out={this.state.calc.output}
+                />
                 {controls}
             </div>
         );
