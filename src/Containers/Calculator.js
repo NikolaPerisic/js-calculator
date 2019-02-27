@@ -6,31 +6,69 @@ import Display from "../Components/Display";
 class Calculator extends Component {
     state = {
         calc: {
-            expression: 0,
-            output: 0
+            expression: "0",
+            output: "0",
+            decimalActive: false
         },
         clear: "C",
         mod: "%",
         divide: "/",
         multiply: "*",
-        seven: 7,
-        eight: 8,
-        nine: 9,
+        seven: "7",
+        eight: "8",
+        nine: "9",
         subtract: "-",
-        four: 4,
-        five: 5,
-        six: 6,
+        four: "4",
+        five: "5",
+        six: "6",
         add: "+",
-        one: 1,
-        two: 2,
-        three: 3,
+        one: "1",
+        two: "2",
+        three: "3",
         decimal: ".",
-        zero: 0,
+        zero: "0",
         delete: "DEL",
         equals: "="
     };
     inputHandler = el => {
-        console.log(el.currentTarget.textContent);
+        const item = el.currentTarget.textContent;
+        const data = { ...this.state.calc };
+        const lastChar = data.expression.charAt(data.expression.length - 1);
+
+        if (data.expression === "0") {
+            if (!isNaN(parseInt(item))) {
+                data.expression = item;
+                data.output = item;
+                this.setState({ calc: data });
+            } else {
+                data.expression += item;
+                this.setState({ calc: data });
+            }
+        } else {
+            if (!isNaN(parseInt(item)) && !isNaN(parseInt(lastChar))) {
+                data.expression += item;
+                data.output += item;
+                this.setState({ calc: data });
+                console.log(this.state.calc);
+            } else if (!isNaN(parseInt(item)) && isNaN(parseInt(lastChar))) {
+                data.expression += item;
+                data.output = item;
+                this.setState({ calc: data });
+            } else if (isNaN(parseInt(item)) && !isNaN(parseInt(lastChar))) {
+                data.expression += item;
+                this.setState({ calc: data });
+            } else {
+                data.expression = data.expression.substring(
+                    0,
+                    data.expression.length - 1
+                );
+                data.expression += item;
+                this.setState({ calc: data });
+                console.log(this.state);
+            }
+        }
+
+        return null;
     };
     render() {
         const controls = Object.entries(this.state).map(([key, val]) => {
