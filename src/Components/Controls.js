@@ -3,9 +3,15 @@ import "../App.scss";
 
 const controls = props => {
     return (
-        <div className="Inputs" id={props.id} onClick={props.clicked}>
-            {props.inputs}
-        </div>
+        <button
+            className="Inputs"
+            id={props.id}
+            onClick={props.clicked}
+            disabled={props.active}
+            value={props.inputs}
+        >
+            {props.inputs.replace("*", "x").replace("/", "÷")}
+        </button>
     );
 };
 
