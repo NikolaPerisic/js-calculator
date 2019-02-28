@@ -39,35 +39,27 @@ class Calculator extends Component {
             if (!isNaN(parseInt(item))) {
                 data.expression = item;
                 data.output = item;
-                this.setState({ calc: data });
             } else {
                 data.expression += item;
-                this.setState({ calc: data });
             }
         } else {
             if (!isNaN(parseInt(item)) && !isNaN(parseInt(lastChar))) {
                 data.expression += item;
                 data.output += item;
-                this.setState({ calc: data });
-                console.log(this.state.calc);
             } else if (!isNaN(parseInt(item)) && isNaN(parseInt(lastChar))) {
                 data.expression += item;
                 data.output = item;
-                this.setState({ calc: data });
             } else if (isNaN(parseInt(item)) && !isNaN(parseInt(lastChar))) {
                 data.expression += item;
-                this.setState({ calc: data });
             } else {
                 data.expression = data.expression.substring(
                     0,
                     data.expression.length - 1
                 );
                 data.expression += item;
-                this.setState({ calc: data });
-                console.log(this.state);
             }
         }
-
+        this.setState({ calc: data });
         return null;
     };
     render() {
