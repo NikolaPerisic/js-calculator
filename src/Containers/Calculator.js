@@ -16,7 +16,7 @@ class Calculator extends Component {
         if (item === "DEL") return this.deleteHandler(lastChar);
         if (item === "C") return this.clearAllHandler();
         if (item === "=") return this.expressionHandler(data.expression);
-        if (item === "±") return this.plusMinusHandler(data);
+        if (item === "±") return this.plusMinusHandler(data, lastChar);
 
         if (
             (item === "." &&
@@ -104,14 +104,29 @@ class Calculator extends Component {
         return this.setState({ calc: data });
     };
 
-    plusMinusHandler(data) {
-        if (data.output === data.expression) {
+    plusMinusHandler(data, lastChar) {
+        console.log(parseFloat(data.output));
+        if (data.output === data.expression && parseFloat(data.output) > 0) {
             data.output = `-${data.output}`;
             data.expression = `-${data.expression}`;
-        } else {
+        } else if (
+            data.output === data.expression &&
+            parseFloat(data.output) < 0
+        ) {
             data.output = data.output.slice(1);
+            data.expression = data.expression.slice(1);
+        } else if (
+            data.output !== data.expression &&
+            !isNaN(parseInt(lastChar))
+        ) {
+            if (data.output.charAt(0) === "-")
+                return this.expressionHandler(data.expression);
+            let sliceIndex = data.expression.length - data.output.length;
+            data.expression = `${data.expression.slice(0, sliceIndex)}-${
+                data.output
+            }`;
+            data.output = `-${data.output}`;
         }
-        console.log(data);
         this.setState({ calc: data });
     }
 
