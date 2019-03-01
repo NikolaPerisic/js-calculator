@@ -16,6 +16,7 @@ class Calculator extends Component {
         if (item === "DEL") return this.deleteHandler(lastChar);
         if (item === "C") return this.clearAllHandler();
         if (item === "=") return this.expressionHandler(data.expression);
+        if (item === "±") return this.plusMinusHandler(data);
 
         if (
             (item === "." &&
@@ -67,6 +68,7 @@ class Calculator extends Component {
         }
         return this.setState({ calc: data });
     };
+
     deleteHandler = lastChar => {
         const data = { ...this.state.calc };
         if (data.output.length > 1 && !isNaN(parseInt(lastChar))) {
@@ -83,19 +85,36 @@ class Calculator extends Component {
         }
         return this.setState({ calc: data });
     };
+
     clearAllHandler = () => {
         return this.setState({ calc: Data.calc });
     };
+
     expressionHandler = str => {
         const data = { ...this.state.calc };
         if (isNaN(parseInt(str[str.length - 1]))) {
             str = str.slice(0, str.length - 1);
         }
-        const expressionEval = math.eval(str).toString();
-        data.output = expressionEval;
-        data.expression = expressionEval;
+        const expressionEval = math.eval(str);
+        if (expressionEval === "Infinity" || expressionEval === "-Infinity") {
+            return this.clearAllHandler();
+        }
+        data.output = math.format(expressionEval, { precision: 14 });
+        data.expression = data.output;
         return this.setState({ calc: data });
     };
+
+    plusMinusHandler(data) {
+        if (data.output === data.expression) {
+            data.output = `-${data.output}`;
+            data.expression = `-${data.expression}`;
+        } else {
+            data.output = data.output.slice(1);
+        }
+        console.log(data);
+        this.setState({ calc: data });
+    }
+
     render() {
         const controls = Object.entries(this.state).map(([key, val]) => {
             if (key !== "calc") {
