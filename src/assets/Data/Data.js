@@ -2,7 +2,7 @@ const data = {
     calc: {
         expression: "0",
         output: "0",
-        decimalActive: false
+        grandTotal: false
     },
     clear: "C",
     negative: "±",
