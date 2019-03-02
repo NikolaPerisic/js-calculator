@@ -1,13 +1,13 @@
 {
-  "main.css": "/js-calculator/static/css/main.897a2f38.chunk.css",
-  "main.js": "/js-calculator/static/js/main.eeab3be5.chunk.js",
-  "main.js.map": "/js-calculator/static/js/main.eeab3be5.chunk.js.map",
+  "main.css": "/js-calculator/static/css/main.a44af4a8.chunk.css",
+  "main.js": "/js-calculator/static/js/main.910f8e8e.chunk.js",
+  "main.js.map": "/js-calculator/static/js/main.910f8e8e.chunk.js.map",
   "runtime~main.js": "/js-calculator/static/js/runtime~main.61779590.js",
   "runtime~main.js.map": "/js-calculator/static/js/runtime~main.61779590.js.map",
   "static/js/2.7c12d386.chunk.js": "/js-calculator/static/js/2.7c12d386.chunk.js",
   "static/js/2.7c12d386.chunk.js.map": "/js-calculator/static/js/2.7c12d386.chunk.js.map",
   "index.html": "/js-calculator/index.html",
-  "precache-manifest.f264290f9742edbe9629f37bb0a7fb6e.js": "/js-calculator/precache-manifest.f264290f9742edbe9629f37bb0a7fb6e.js",
+  "precache-manifest.f9e17469e04a84a02adb4158459fdf01.js": "/js-calculator/precache-manifest.f9e17469e04a84a02adb4158459fdf01.js",
   "service-worker.js": "/js-calculator/service-worker.js",
-  "static/css/main.897a2f38.chunk.css.map": "/js-calculator/static/css/main.897a2f38.chunk.css.map"
+  "static/css/main.a44af4a8.chunk.css.map": "/js-calculator/static/css/main.a44af4a8.chunk.css.map"
 }
