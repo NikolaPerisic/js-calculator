@@ -1,30 +1,9 @@
-// .App {
-//   text-align: center;
-// }
-
-// .App-header {
-//   background-color: #282c34;
-//   min-height: 100vh;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: center;
-//   font-size: calc(10px + 2vmin);
-//   color: white;
-// }
 body {
     background: #52c234;
     background: -webkit-linear-gradient(to bottom, #061700, #52c234);
     background: linear-gradient(to bottom, #061700, #52c234);
+    background-size: cover;
 }
-// .Wrapper {
-//     margin: auto;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     border: 2px solid black;
-//     border-radius: 20px;
-// }
 .Calc {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -41,12 +20,14 @@ body {
     width: auto;
     height: 800px;
     width: 400px;
-    border: 2px solid black;
-    border-radius: 21px;
+    border: 1px solid #bdc3c7;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px #1e272e;
+    color: #fff;
 }
 .Display {
     grid-area: a;
-    background-color: #3c40c6;
+    // background-color: #3c40c6;
     background: linear-gradient(
         -45deg,
         rgba(255, 255, 255, 0) 5%,
@@ -87,16 +68,16 @@ body {
 button {
     font-size: 1.2rem;
     outline: none;
-    &:active {
-        color: yellow;
+    &:hover {
+        color: #ffc312;
     }
 }
 #equals {
     color: #ffc312;
-    border-bottom-right-radius: 18px;
+    border-bottom-right-radius: 20px;
 }
 #decimal {
-    border-bottom-left-radius: 18px;
+    border-bottom-left-radius: 20px;
 }
 .Brand {
     grid-area: d1;
@@ -105,10 +86,11 @@ button {
     font-size: 0.8rem;
     padding-left: 0.5rem;
     padding-top: 0.2rem;
+    user-select: none;
     z-index: -1;
     &:after {
         content: " true solar";
-        font-size: 5px;
+        font-size: 6px;
     }
 }
 .Expression {
@@ -119,5 +101,60 @@ button {
     z-index: -1;
 }
 .Output {
-    grid-area: d4;
+    grid-area: d3;
+    align-self: flex-end;
+    z-index: -1;
+}
+.Footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 1rem;
+    text-align: right;
+    width: 100%;
+    color: #1e272e;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+    @media (max-width: 600px) {
+        display: none;
+    }
+}
+
+@media (max-width: 450px) {
+    .Display {
+        background: #3c40c6;
+    }
+    .Calc {
+        width: 100vw;
+        border: none;
+    }
+    .Output,
+    .Expression,
+    .Brand {
+        z-index: 1;
+    }
+    .Brand {
+        display: none;
+    }
+}
+@media (max-height: 850px) {
+    .Calc {
+        height: 100vh;
+    }
+    .Display,
+    .Calc,
+    #equals,
+    #decimal {
+        border-radius: unset;
+    }
+    .Output,
+    .Expression,
+    .Brand {
+        z-index: 1;
+    }
 }

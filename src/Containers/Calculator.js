@@ -162,7 +162,6 @@ class Calculator extends Component {
     with the lastAnswer, clicking one of the math operators will do so, in case new digit is clicked, calculation starts 
     from the beginning */
     newCalcHandler = (item, data) => {
-        console.log(item);
         if (!isNaN(parseInt(item))) {
             this.clearAllHandler();
             data.output = item;
