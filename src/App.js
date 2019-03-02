@@ -5,9 +5,9 @@ import Calculator from "./Containers/Calculator";
 class App extends Component {
     render() {
         return (
-            <div className="Wrapper">
+            <React.Fragment>
                 <Calculator />
-            </div>
+            </React.Fragment>
         );
     }
 }

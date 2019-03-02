@@ -196,7 +196,7 @@ class Calculator extends Component {
                     exp={this.state.calc.expression}
                     out={this.state.calc.output}
                 />
-                {controls}
+                <div className="Controls">{controls}</div>
             </div>
         );
     }

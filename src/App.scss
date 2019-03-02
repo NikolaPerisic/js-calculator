@@ -12,14 +12,20 @@
 //   font-size: calc(10px + 2vmin);
 //   color: white;
 // }
-.Wrapper {
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+body {
+    background: #52c234;
+    background: -webkit-linear-gradient(to bottom, #061700, #52c234);
+    background: linear-gradient(to bottom, #061700, #52c234);
 }
+// .Wrapper {
+//     margin: auto;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     border: 2px solid black;
+//     border-radius: 20px;
+// }
 .Calc {
-    background-color: gray;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(8, 1fr);
@@ -32,25 +38,86 @@
         "b b b b"
         "b b b b"
         "b b b b";
-    width: 400px;
+    width: auto;
     height: 800px;
-    grid-gap: 1rem;
-    padding: 1rem;
+    width: 400px;
+    border: 2px solid black;
+    border-radius: 21px;
 }
 .Display {
     grid-area: a;
-    background-color: #9283ff77;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-}
+    background-color: #3c40c6;
+    background: linear-gradient(
+        -45deg,
+        rgba(255, 255, 255, 0) 5%,
+        rgba(255, 255, 255, 0.15) 30%,
+        rgba(255, 255, 255, 0) 50%,
+        rgba(255, 255, 255, 0) 60%,
+        rgba(255, 255, 255, 0) 80%,
+        rgba(255, 255, 255, 0.4) 100%
+    );
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    color: #ffc312;
+    overflow: hidden;
 
+    text-align: center;
+    font-size: 2rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas:
+        "d1 d2 d2 d2"
+        "d3 d3 d3 d3"
+        "d4 d4 d4 d4";
+}
+.Controls {
+    grid-area: b;
+    display: grid;
+    grid-gap: 0rem;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+}
 .Inputs {
-    background-color: aquamarine;
+    background-color: #1e272e;
+    color: #fff;
+    border: none;
+    user-select: none;
 }
 button {
     font-size: 1.2rem;
+    outline: none;
+    &:active {
+        color: yellow;
+    }
+}
+#equals {
+    color: #ffc312;
+    border-bottom-right-radius: 18px;
+}
+#decimal {
+    border-bottom-left-radius: 18px;
+}
+.Brand {
+    grid-area: d1;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    padding-left: 0.5rem;
+    padding-top: 0.2rem;
+    z-index: -1;
+    &:after {
+        content: " true solar";
+        font-size: 5px;
+    }
+}
+.Expression {
+    grid-area: d2;
+    color: #05c46b;
+    font-size: 1rem;
+    padding-top: 0.2rem;
+    z-index: -1;
+}
+.Output {
+    grid-area: d4;
 }
