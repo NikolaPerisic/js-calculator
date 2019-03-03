@@ -17,7 +17,7 @@ body {
         "b b b b"
         "b b b b"
         "b b b b";
-    width: auto;
+    overflow: hidden;
     height: 800px;
     width: 400px;
     border: 1px solid #bdc3c7;
@@ -41,7 +41,6 @@ body {
     border-top-right-radius: 18px;
     color: #ffc312;
     overflow: hidden;
-
     text-align: center;
     font-size: 2rem;
     display: grid;
@@ -125,26 +124,15 @@ button {
     }
 }
 
-@media (max-width: 450px) {
+@media (max-height: 850px) and (max-width: 450px) {
+    .Calc {
+        border: none;
+        width: 100vw;
+        height: calc(100vh - 60px);
+        box-shadow: none;
+    }
     .Display {
         background: #3c40c6;
-    }
-    .Calc {
-        width: 100vw;
-        border: none;
-    }
-    .Output,
-    .Expression,
-    .Brand {
-        z-index: 1;
-    }
-    .Brand {
-        display: none;
-    }
-}
-@media (max-height: 850px) {
-    .Calc {
-        height: 100vh;
     }
     .Display,
     .Calc,
@@ -156,5 +144,17 @@ button {
     .Expression,
     .Brand {
         z-index: 1;
+    }
+    .Brand {
+        display: none;
+    }
+    body {
+        align-items: flex-end;
+        background: #3c40c6;
+    }
+}
+@media (max-height: 850px) and (min-width: 451px) {
+    .Calc {
+        height: 100vh;
     }
 }
